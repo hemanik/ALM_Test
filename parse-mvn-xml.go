@@ -32,7 +32,7 @@ func main() {
     b, _ := ioutil.ReadAll(xmlFile)
  	
     xml.Unmarshal(b, &v)
-
+ 
     fmt.Printf("Name: %q\n", v.Name)
     fmt.Printf("Tests Run: %q\n", v.Tests)
     fmt.Printf("Failures: %q\n", v.Failures)
