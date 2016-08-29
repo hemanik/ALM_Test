@@ -5,6 +5,7 @@ import (
      "regexp"
      "fmt"
      "os"
+     "io/ioutil"
 )
 
 func main() {
@@ -23,13 +24,20 @@ func main() {
      f, _ := os.Open("test.txt")
      scanner := bufio.NewScanner(f)
      
+     b, _ := ioutil.ReadAll("test.txt")
+
+     re := regexp.MustCompile("Test Set: [^,\s]*")     
+
+     fmt.Print("%q\n", re.FindString(b)) 
      //scanner.Split(bufio.ScanWords)
  
      for scanner.Scan() {
          line := scanner.Text()
          pattern := `\w+(\s\w+)?: [^,\s]*` 
          re := regexp.MustCompile(pattern)
-         
+       
+
+           
        // fmt.Println(line)
        // re := regexp.MustCompile(`[A-Za-z]+(\s[A-Za-z]+)?:`)
        // re := regexp.MustCompile(`\w+(\s\w+)?: [^,\s]*`)
