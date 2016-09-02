@@ -8,7 +8,7 @@ import (
      "strings"
 )
 
-func main() {
+func parse-txt1() {
 
     type TestResult struct {
           Name string 
